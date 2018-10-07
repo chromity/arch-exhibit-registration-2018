@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="page-label-box">
+        <h2 class="page-label">|<span style="padding-right: 8px;">  </span>REGISTRATION HISTORY</h2>
+    </div>
+
+    <div class="row" id="table-content" style="width: 80vw; margin-left: 10vw; margin-top: 20px;">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col" style="width: 15%;">STUDENT ID</th>
+                <th scope="col" style="width: 20%;">FIRST NAME</th>
+                <th scope="col" style="width: 15%;">LAST NAME</th>
+                <th scope="col" style="width: 10%;">PROGRAM</th>
+                <th scope="col" style="width: 10%;">YEAR LEVEL</th>
+                <th scope="col" style="width: 20%;">DATE</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for each in data %}
+                <tr>
+                    <th scope="row">{{ each.student_number }}</th>
+                    <td>{{ each.first_name }}</td>
+                    <td>{{ each.last_name }}</td>
+                    <td>{{ each.program }}</td>
+                    <td>{{ each.year_level }}</td>
+                    <td>{{ each.date }}</td>
+                    <td><a href="{% url 'registration:registration_edit' pk=each.pk %}">Edit</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

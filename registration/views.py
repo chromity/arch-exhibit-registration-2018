@@ -7,7 +7,7 @@ from registration.models import *
 
 @login_required(login_url='admin:login')
 def index(request):
-    return render(request, "registration/registration_index.html")
+    return render(request, "registration_index.html")
 
 
 # Register student to the system
